@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quality Checker</title>
+
+    <style>
+      h1 {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 50px;
+      }
+      input {
+        width: 600px;
+        height: 50px;
+        font-size: 20px;
+        background-color: #0E8388;
+        color: #101111;
+        padding: 20px;
+        border-radius: 25px;
+        border: none;
+        font-family: "Times New Roman", Times, serif;
+        
+      }
+      .checker {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        color: #394867;
+
+      }
+      .btn {
+        font-size: 20px;
+        background-color: #0E8388;
+        padding: 20px;
+        border-radius: 25px;
+        margin-left: 10px;
+        border: none;
+      }
+      .btn:hover {
+        background-color: #a6d0dd;
+      }
+      .prediction {
+        font-size: 30px;
+        background-color: #0E8388;
+        border-radius: 25px;
+        padding: 20px;
+        width: 50%;
+        margin: 30px auto;
+        text-align: center;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.26);
+      }
+      .aboutquality {
+        background-color: #f1f6f9;
+        border-radius: 25px;
+        margin: 20px auto;
+        padding: 25px;
+        font-size: 22px;
+      }
+      .aboutQC {
+        background-color: #f1f6f9;
+        border-radius: 25px;
+        margin: 20px auto;
+        padding: 25px;
+        font-size: 22px;
+      }
+      .card {
+        background-color: #0E8388;
+        padding: 25px 20px;
+        border-radius: 25px;
+        margin: 0 auto;
+        width: 50%;
+      }
+      body {
+        background: "bg.jpg";
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: #CBE4DE;
+      }zz
+      
+    </style>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="checker">
+      <h1>Quality Checker</h1>
+
+      <form action="{{ url_for('predict')}}" method="post">
+        <input 
+          type="search"
+          id="search"
+          name="search"
+          placeholder="Enter question here"
+        />
+        <button type="submit" class="btn">Predict</button>
+      </form>
+    </div>
+    <br />
+    <div class="prediction">{{ prediction_text }}</div>
+    <div class="card">
+      <div class="aboutquality">
+        <p class="'content">The quality parameters are as follows:</p>
+        <p class="'content">
+          <b><u>HQ</u></b> - High quality Question which can be posted on forum
+        </p>
+        <p class="'content">
+          <b><u>LQ-EDIT</u></b> - Low Quality Question which can be edited so as
+          to make it's quality better which can be posted on website
+        </p>
+        <p class="'content">
+          <b><u>LQ-CLOSE</u></b> - Low quality question which should be
+          discarded and it can not be posted.
+        </p>
+      </div>
+      <div class="aboutQC">
+        <h3>ABOUT</h3>
+        <p class="'content">
+          Quality Checker can be used to predict the quality of the question
+          before posting it on the Q&A forum so that the chances of getting it
+          answered can be increased. In today’s era Stack Overflow plays a
+          significant role in the life of programmers and developers. Due to the
+          poor quality of questions on Stack Overflow being unanswered, it is
+          vital to analyze the quality of the question before posting it on the
+          website, so that there are higher chances of getting answered. The
+          innovative idea that we intend behind this  is to develop a web
+          application that will be used to check and analyze the quality of the
+          question before posting it on the website. This will help to enhance
+          the probability of getting a question answered which will indeed
+          increase its readability.This will also help stack overflow gain an
+          advantage over rival question-and-answer websites.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
